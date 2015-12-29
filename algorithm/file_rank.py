@@ -3,6 +3,8 @@
 import MySQLdb
 import string
 import os
+import urllib2
+import datetime
 
 conn= MySQLdb.connect(
     host='localhost',
@@ -12,6 +14,31 @@ conn= MySQLdb.connect(
     db ='code_mine',
 )
 cur = conn.cursor()
+
+def formatDatetime(time):
+  numbers = time.split()
+  year = numbers[4]
+  month_dict = {
+    'Jan': '01',
+    'Feb': '02',
+    'Mar': '03',
+    'Apr': '04',
+    'May': '05',
+    'Jun': '06',
+    'Jul': '07',
+    'Aug': '08',
+    'Sep': '09',
+    'Oct': '10',
+    'Nov': '11',
+    'Dec': '12'
+  }
+  month = month_dict[numbers[1]]
+  day = numbers[2]
+  time = numbers[3]
+  retTime = year+'-'+month+'-'+day+' '+time
+  return retTime
+
+
 
 def insertCommitData():
   cur.execute("truncate table commits")
@@ -34,7 +61,7 @@ def insertCommitData():
       #print email
     if line[0: 8] == 'Date:   ':
       tmps = line.split('   ')
-      time = tmps[1].rstrip()
+      time = formatDatetime(tmps[1].rstrip())
       #print time
     if line[0: 4] == "    " and line[4] != " ":
       comment += line[4: len(line)].rstrip().replace("'", " ").replace('"', ' ')
@@ -46,7 +73,7 @@ def insertCommitData():
       changed_files += " "
       #print changed_files
     if line.find("file changed,") != -1 or line.find("files changed,") != -1:
-      sql = "insert into commits values('"+commit_id+"', '"+name+"', '"+email+"', '"+time+"', '"+comment+"', '"+changed_files+"')"
+      sql = "insert into commits values('"+commit_id+"', '"+name+"', '"+email+"', '"+comment+"', '"+changed_files+"', '"+time+"')"
       print sql
       cur.execute(sql)
       comment = ""
@@ -55,6 +82,13 @@ def insertCommitData():
   gitlog.close()
 
 insertCommitData()
+
+def insertIssueData():
+  page = urllib2.urlopen('https://github.com/nodejs/node/issues/3').read()
+  print page
+
+#insertIssueData()
+
 
 cur.close()
 conn.commit()
