@@ -78,17 +78,8 @@ def insertCommitData():
       cur.execute(sql)
       comment = ""
       changed_files = "" 
-
   gitlog.close()
-
-insertCommitData()
-
-def insertIssueData():
-  page = urllib2.urlopen('https://github.com/nodejs/node/issues/3').read()
-  print page
-
-#insertIssueData()
-
+#insertCommitData()
 
 cur.close()
 conn.commit()
