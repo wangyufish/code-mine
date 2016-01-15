@@ -1,0 +1,106 @@
+1. Shell
+git log --stat -U1 -w >/home/wangyu/code-mine/data/node_gitlog
+cat allitems.txt | grep github >test
+查看mail文件夹大小：du -s mail
+
+2. SQL
+select repo_id, count(*) as count from project_members group by repo_id order by count desc
+select language, count(*) from projects where forked_from is null group by language
+select * from projects where forked_from is null
+select * from projects where language='C++' and forked_from is null
+select * from (select forked_from, count(*) as count from ( select * from projects where forked_from is not null and language = 'C') as projectnotnull group by forked_from) as origin order by count desc; 
+select * from projects order by created_at desc
+select count(*) from commits
+select * from projects where name='android' and forked_from is null
+select * from commit_comments where ext_ref_id='4da86be29a349ab2c34052d4972ebb789117e09b'
+select * from users where name='Jonathan Abrahams'
+select * from commit_comments where locate('error', body)>0 or locate('bug', body)>0 or locate('fix', body)>0 or locate('issue', body)>0 or locate('mistake', body)>0 or locate('incorrent', body)>0 or locate('fault', body)>0 or locate('defect', body)>0 or locate('flow', body)>0
+create table commits(commit_id int ,name varchar(20),email varchar(30),comment tinytext, changed_files tinytext)
+insert into commits values('7c9cdb0882058924e9066a8f943109009d8b3bfc','Rod Vagg','rod@vagg.org','Thu Dec 24 13:34:59 2015','test: test each block in addon.md contains js & cc','tools/doc/addon-verify.js')
+insert into commits values('7c9cdb0882058924e9066a8f943109009d8b3bfc', 'Rod Vagg', 'rod@vagg.org', 'Thu Dec 24 13:34:59 2015 +1100', 'test: test each block in addon.md contains js & cc  Allows more freedom in adding additional headings to addon.markdown, otherwise itll try and convert each block under a heading to a test case. We need to have at least a .js and a .cc in order to have something to test.  Fixes regression caused by adding a new 3rd-level heading in d5863bc0f43a3778aa773d5f5f4ad08e1d7d7497  PR-URL: https://github.com/nodejs/node/pull/4411 Reviewed-By: Myles Borins <myles.borins@gmail.com> ', 'tools/doc/addon-verify.js ')
+insert into commits values('6f1d0a8a2f1514823cd856812407c87383aedee7', 'Kevin O Hara', 'kevinohara80@gmail.com', 'Tue Dec 2 22:17:17 2014 -0500', 'docs: reword project messaging  Rewords project messaging in README to make the overall project messaging a bit clearer. More discussion to be found in iojs/io.js#24.  PR-URL: https://github.com/iojs/io.js/pull/36 Reviewed-By: Ben Noordhuis <info@bnoordhuis.nl> Reviewed-By: Jeremiah Senkpiel <fishrock123@rocketmail.com> Reviewed-By: Rod Vagg <rod@vagg.org> ', 'README.md ')
+select * from commits
+truncate table commits
+select * from commits where locate('error', comment)>0 or locate('bug', comment)>0 or locate('fix', comment)>0 or locate('issue', comment)>0 or locate('mistake', comment)>0 or locate('incorrent', comment)>0 or locate('fault', comment)>0 or locate('defect', comment)>0 or locate('flow', comment)>0
+CREATE TABLE commits (
+    id bigint,
+    repository_id bigint,
+    blamed_commit_id bigint,
+    type text,
+    sha text,
+    url text,
+    author_email text,
+    author_name text,
+    author_when timestamp,
+    committer_email text,
+    committer_name text,
+    committer_when timestamp,
+    additions bigint,
+    deletions bigint,
+    total_changes bigint,
+    past_changes bigint,
+    future_changes bigint,
+    past_different_authors bigint,
+    future_different_authors bigint,
+    author_contributions_percent double precision,
+    message text,
+    patch text,
+    hunk_count bigint,
+    cve text,
+    files_changed bigint,
+    patch_keywords text
+);
+CREATE TABLE repositories (
+    id integer,
+    name text,
+    description text,
+    pushed_at timestamp,
+    created_at timestamp,
+    updated_at timestamp,
+    forks_count integer,
+    stargazers_count integer,
+    watchers_count integer,
+    subscribers_count integer,
+    open_issues_count integer,
+    size integer,
+    language text,
+    default_branch text,
+    git_url text,
+    distinct_authors_count integer,
+    commits_count integer
+);
+CREATE TABLE cves (
+    id text,
+    type text,
+    published date,
+    updated date,
+    score real,
+    gained_access_level text,
+    access text,
+    complexity text,
+    authentication text,
+    conf text,
+    integ text,
+    avail text,
+    description text,
+    vendor text
+);
+create table issues (
+	id int,
+	issue_id bigint,
+	title varchar(255),
+	name varchar(45),
+	time datetime,
+	content mediumtext,
+	tag varchar(255),
+	project varchar(45));
+truncate table issues
+select count(*) from issues
+select comment from commits where changed_files != 'CHANGELOG.md'
+
+20160114
+
+alter table repositories add column pull_request_count integer after open_issues_count
+
+
+
