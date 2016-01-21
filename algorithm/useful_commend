@@ -99,8 +99,26 @@ select count(*) from issues
 select comment from commits where changed_files != 'CHANGELOG.md'
 
 20160114
-
 alter table repositories add column pull_request_count integer after open_issues_count
 
-
-
+20160121
+CREATE TABLE commits (
+    id bigint,
+    repository_id bigint,
+    is_bug_fixed text,
+    sha text,
+    url text,
+    author_email text,
+    author_name text,
+    author_when timestamp,
+    committer_email text,
+    committer_name text,
+    committer_when timestamp,
+    additions bigint,
+    deletions bigint,
+    total_changes bigint,
+    message text,
+    patch text,
+    cve text,
+    files_changed bigint
+);

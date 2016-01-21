@@ -25,7 +25,7 @@ def buildRepoTable():
     names = os.listdir(codesetsDir)
     #print names
     tmpfile = "/home/wangyu/tmp"
-    sqlfile = open("../result/insert_sql_list")
+    sqlfile = open("../result/insert_sql_list", 'wr')
     id = 1
     for name in names:
         #print id
