@@ -120,5 +120,8 @@ CREATE TABLE commits (
     message text,
     patch text,
     cve text,
-    files_changed bigint
+    files_changed text
 );
+
+20160122
+git show commit-sha

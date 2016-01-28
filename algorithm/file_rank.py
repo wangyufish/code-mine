@@ -17,6 +17,8 @@ cur = conn.cursor()
 
 def formatDatetime(time):
   numbers = time.split()
+  if len(numbers) != 6:
+    return -1
   year = numbers[4]
   month_dict = {
     'Jan': '01',
