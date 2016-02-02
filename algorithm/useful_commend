@@ -125,3 +125,9 @@ CREATE TABLE commits (
 
 20160122
 git show commit-sha
+
+20160201
+select message from commits where repository_id in (select id from repositories where language='C' and commits_count >= 5175)
+select message from commits where repository_id in (81, 116, 135, 187, 256, 274, 288, 325, 436, 457)
+select * from repositories where language='C' order by commits_count desc limit 10
+select id from repositories where language='C' and commits_count >= 16050
