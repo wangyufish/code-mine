@@ -32,7 +32,7 @@ commitDict = {}
 
 def clusterKMeans():
     X,commitkeyList,commitmessList = getTFIDFMatrix()
-    clf = KMeans(n_clusters=10000)  
+    clf = KMeans(n_clusters=600)  
     s = clf.fit(X)
     #clf.plot()
     print s
@@ -73,10 +73,10 @@ def saveClusterResult(commitkeyList,commitmessList,labels):
         cur=conn.cursor()
         cur.execute('set names utf8mb4')
         conn.select_db('vccfinder')
-        cur.execute('truncate table commit_cluster')
+        cur.execute('truncate table commit_cluster_600')
         for i in range(len(commitkeyList)):
             clusterList = (commitkeyList[i].split('_')[0],commitkeyList[i].split('_')[1],commitDict[commitkeyList[i]][1],commitmessList[i].decode('utf-8','ignore').encode('utf-8'),labels[i])
-            sqli='insert into commit_cluster (original_id,repository_id,sha,message_stem,cluster) values (%s,%s,%s,%s,%s);'
+            sqli='insert into commit_cluster_600 (original_id,repository_id,sha,message_stem,cluster) values (%s,%s,%s,%s,%s);'
             cur.execute(sqli,clusterList)
             conn.commit()
         cur.close()
