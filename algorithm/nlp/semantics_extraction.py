@@ -92,7 +92,7 @@ def buildCommentsForCluster():
     output = open("../../result/tmp_gitlog", "wr")
     conn= MySQLdb.connect(host='localhost', port = 3306, user='root', passwd='wangyu', db ='vccfinder')
     cur = conn.cursor()
-    sql = "select cluster from commit_cluster_100 group by cluster"
+    sql = "select cluster from commit_cluster_600 group by cluster"
     cur.execute(sql)
     result = cur.fetchall()
     clusterids = []
@@ -102,7 +102,7 @@ def buildCommentsForCluster():
     print("finish get cluster ids...")
     for clusterid in clusterids:
         text = ""
-        sql = "select message from commits, commit_cluster_100 where commits.id = commit_cluster_100.original_id and cluster = " + str(clusterid)
+        sql = "select message from commits, commit_cluster_600 where commits.id = commit_cluster_600.original_id and cluster = " + str(clusterid)
         cur.execute(sql)
         result = cur.fetchall()
         print("finish get messages...")
@@ -144,7 +144,7 @@ def topicExtractionLDA():
     output = open("../../result/topic_extraction", "wr")
     conn= MySQLdb.connect(host='localhost', port = 3306, user='root', passwd='wangyu', db ='vccfinder')
     cur = conn.cursor()
-    sql = "select cluster from commit_cluster_100 group by cluster"
+    sql = "select cluster from commit_cluster_600 group by cluster"
     cur.execute(sql)
     result = cur.fetchall()
     clusterids = []
@@ -154,7 +154,7 @@ def topicExtractionLDA():
     print("finish get cluster ids...")
     for clusterid in clusterids:
         text = []
-        sql = "select message from commits, commit_cluster_100 where commits.id = commit_cluster_100.original_id and cluster = " + str(clusterid)
+        sql = "select message from commits, commit_cluster_600 where commits.id = commit_cluster_600.original_id and cluster = " + str(clusterid)
         cur.execute(sql)
         result = cur.fetchall()
         print("finish get messages...")
