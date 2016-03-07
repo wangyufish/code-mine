@@ -31,6 +31,7 @@ def getEdge(clusterFlag,word,word2,beforeName,laterName):
 	tempdepth = 0
 	for synset1 in synsetList1:
 		for synset2 in synsetList2:
+			sim = synset1.path_similarity(synset2)
 			synsetList3 = synset1.lowest_common_hypernyms(synset2)
 			if len(synsetList3) == 0:
 				pass
@@ -42,13 +43,12 @@ def getEdge(clusterFlag,word,word2,beforeName,laterName):
 						if depth > tempdepth:
 							tempdepth = depth
 							if synset1 == synset3:
-								tempwordlinklist = [(clusterFlag,beforeName,laterName,beforeName + ":" + word + "-->" + laterName + ":" + word2,depth)]
+								tempwordlinklist = [(clusterFlag,beforeName,laterName,beforeName + ":" + word + "-->" + laterName + ":" + word2,depth,synset2.min_depth(),synset1.name(),synset2.name(),synset1.path_similarity(synset2))]
 							elif synset2 == synset3:
-								tempwordlinklist = [(clusterFlag,laterName,beforeName,laterName + ":" + word2 + "-->" + beforeName + ":" + word,depth)]
+								tempwordlinklist = [(clusterFlag,laterName,beforeName,laterName + ":" + word2 + "-->" + beforeName + ":" + word,depth,synset1.min_depth(),synset2.name(),synset1.name(),synset2.path_similarity(synset1))]
 							else:
-								pass
 								#tempwordlinklist = [(clusterFlag,synset3.name(),beforeName,synset3.name() + "-->" + beforeName + ":" + word,depth),(clusterFlag,synset3.name(),laterName,synset3.name() + "-->" + laterName + ":" + word2,depth)]
-#如word与word2有共同上位词的情况不需要处理，可不存入数据库
+								pass
 	wordlinklist.extend(tempwordlinklist)
 
 	
@@ -90,7 +90,7 @@ def insertWordLinkToDB():
         cur=conn.cursor()
         cur.execute('set names utf8mb4')
         conn.select_db('vccfinder')
-        sqli='insert into wordLink (cluster,start,end,edge,depth) values (%s,%s,%s,%s,%s);'
+        sqli='insert into wordLink (cluster,start,end,edge,depth1,depth2,synset1,synset2,path_sim) values (%s,%s,%s,%s,%s,%s,%s,%s,%s);'
         cur.executemany(sqli,wordlinklist)
         wordlinklist=[]
         conn.commit()
