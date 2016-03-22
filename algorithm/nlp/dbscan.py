@@ -111,7 +111,7 @@ def getCommitMessListByReposId():
     global commitDict
     contentDict = {}
     try:
-        conn=MySQLdb.connect(host='localhost',user='root',passwd='123456',port=3306)
+        conn=MySQLdb.connect(host='localhost',user='root',passwd='wangyu',port=3306)
         cur=conn.cursor()
         conn.select_db('vccfinder')
         #count=cur.execute('SELECT id,repository_id,sha,message,is_bug_fixed,author_email,committer_email,additions,deletions FROM commits_words where repository_id=457 or repository_id=274 or repository_id=288 or repository_id=256 or repository_id=249 or repository_id=135 or repository_id=207 or repository_id=460 or repository_id=452 or repository_id=1;')
