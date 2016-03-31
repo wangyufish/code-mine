@@ -1,0 +1,9 @@
+hadoop fs -mkdir /tmp/input              在HDFS上新建文件夹
+hadoop fs -put input1.txt /tmp/input  把本地文件input1.txt传到HDFS的/tmp/input目录下
+hadoop fs -get  input1.txt /tmp/input/input1.txt  把HDFS文件拉到本地
+hadoop fs -ls /tmp/output                  列出HDFS的某目录
+hadoop fs -cat /tmp/ouput/output1.txt  查看HDFS上的文件
+hadoop fs -rmr /home/less/hadoop/tmp/output  删除HDFS上的目录
+hadoop dfsadmin -report 查看HDFS状态，比如有哪些datanode，每个datanode的情况
+hadoop dfsadmin -safemode leave  离开安全模式
+hadoop dfsadmin -safemode enter  进入安全模式

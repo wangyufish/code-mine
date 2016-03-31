@@ -1,0 +1,8 @@
+1. hadoop运行环境部署
+主要参考：http://freewxy.iteye.com/blog/1027569
+jdk安装：sudo apt-get install default-jdk
+JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+
+2. eclipse中hadoop开发环境搭建
+主要参考：http://www.cnblogs.com/kinglau/p/3802705.html
+运行时，右键点击Run As -> Run Configuration, 输入参数（参数为本地文件路径），再运行。

@@ -1,0 +1,62 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+buildRootWordDic	similarWordCombine.py	/^def buildRootWordDic():$/;"	f
+execCmd	getPatchToDB.py	/^def execCmd(cmd):  $/;"	f
+file_count	wordcount/getWordFile.py	/^file_count=0$/;"	v
+genTagsFile	buildFuncSemanticTable.py	/^def genTagsFile():$/;"	f
+getAllDict	wordcount/getWordDict.py	/^def getAllDict(repos_list):$/;"	f
+getAllDict	wordcount/getWordFile.py	/^def getAllDict(repos_list):$/;"	f
+getAllTag	ctags/transFileToDB.py	/^def getAllTag(repos_list):$/;"	f
+getAllToDB	wordcount/transResultToDB.py	/^def getAllToDB(repos_list):$/;"	f
+getCommitMessListByReposId	getPatchToDB.py	/^def getCommitMessListByReposId(reposId):$/;"	f
+getDataFromFile	wordcount/transResultToDB.py	/^def getDataFromFile(repos_id,repos_name):$/;"	f
+getDict	wordcount/getWordDict.py	/^def getDict(str):$/;"	f
+getDict	wordcount/getWordFile.py	/^def getDict(str):$/;"	f
+getPatchBySha	getPatchToDB.py	/^def getPatchBySha(id,repository_id,sha):$/;"	f
+getPatchDB	getPatchToDB.py	/^def getPatchDB():$/;"	f
+getReposTag	ctags/transFileToDB.py	/^def getReposTag(repos_id,repos_name):$/;"	f
+getWordDict	wordcount/getWordDict.py	/^def getWordDict(repos_id,repos_name):$/;"	f
+getWordDict	wordcount/getWordFile.py	/^def getWordDict(repos_id,repos_name):$/;"	f
+getWordList	similarWordCombine.py	/^def getWordList():$/;"	f
+hubpathprefix	getPatchToDB.py	/^hubpathprefix = '\/home\/happy\/git_vccfinder\/project\/'$/;"	v
+insertDataIntoDB	wordcount/transResultToDB.py	/^def insertDataIntoDB():$/;"	f
+insertTagIntoDB	ctags/transFileToDB.py	/^def insertTagIntoDB():$/;"	f
+insertWordDictIntoDB	buildFuncSemanticTable.py	/^def insertWordDictIntoDB():$/;"	f
+insertWordDictIntoDB	wordcount/getWordDict.py	/^def insertWordDictIntoDB():$/;"	f
+insertWordDictIntoFile	wordcount/getWordFile.py	/^def insertWordDictIntoFile(write_path):$/;"	f
+patchList	getPatchToDB.py	/^patchList = []$/;"	v
+project_path	buildFuncSemanticTable.py	/^project_path = "\/media\/wangyu\/My_Device1\/research_data\/github\/codeset_10\/"$/;"	v
+project_path	ctags/transFileToDB.py	/^project_path = "\/home\/happy\/code_vccfinder\/project\/"$/;"	v
+project_path	wordcount/getWordDict.py	/^project_path = "\/home\/happy\/code_vccfinder\/project\/"$/;"	v
+project_path	wordcount/getWordFile.py	/^project_path = "\/home\/happy\/code_vccfinder\/project\/"$/;"	v
+project_path	wordcount/transResultToDB.py	/^project_path = "\/home\/happy\/code_vccfinder\/project\/"$/;"	v
+recordlist	wordcount/transResultToDB.py	/^recordlist = []$/;"	v
+recordlist_length	wordcount/transResultToDB.py	/^recordlist_length = 10000$/;"	v
+removePunctuationNum	wordcount/getWordDict.py	/^def removePunctuationNum(text):$/;"	f
+removePunctuationNum	wordcount/getWordFile.py	/^def removePunctuationNum(text):$/;"	f
+reposNameDict	getPatchToDB.py	/^reposNameDict = {}$/;"	v
+repos_list	buildFuncSemanticTable.py	/^repos_list = [(457,'linux'),(274,'qemu'),(288,'git'),(256,'postgres'),(249,'openssl'),(135,'httpd'),(207,'torque'),(460,'lxc'),(452,'libuv'),(1,'abrt')]$/;"	v
+repos_list	ctags/transFileToDB.py	/^repos_list = [(457,'linux'),(274,'qemu'),(288,'git'),(256,'postgres'),(249,'openssl'),(135,'httpd'),(207,'torque'),(460,'lxc'),(452,'libuv'),(1,'abrt')]$/;"	v
+repos_list	wordcount/getWordDict.py	/^repos_list = [(457,'linux'),(274,'qemu'),(288,'git'),(256,'postgres'),(249,'openssl'),(135,'httpd'),(207,'torque'),(460,'lxc'),(452,'libuv'),(1,'abrt')]$/;"	v
+repos_list	wordcount/getWordFile.py	/^repos_list = [(457,'linux'),(274,'qemu'),(288,'git'),(256,'postgres'),(249,'openssl'),(135,'httpd'),(207,'torque'),(460,'lxc'),(452,'libuv'),(1,'abrt')]$/;"	v
+repos_list	wordcount/transResultToDB.py	/^repos_list = [(457,'linux'),(274,'qemu'),(288,'git'),(256,'postgres'),(249,'openssl'),(135,'httpd'),(207,'torque'),(460,'lxc'),(452,'libuv'),(1,'abrt')]$/;"	v
+savePatchToDB	getPatchToDB.py	/^def savePatchToDB():$/;"	f
+substringList	frequentSubstringMining.py	/^def substringList(word, k):$/;"	f
+substrings	frequentSubstringMining.py	/^    substrings = substringList('wangyushiwenguo', 4)$/;"	v
+taglist	ctags/transFileToDB.py	/^taglist=[]$/;"	v
+taglist_length	ctags/transFileToDB.py	/^taglist_length = 10000$/;"	v
+trimstr	getPatchToDB.py	/^def trimstr(zstr):$/;"	f
+tryToSaveDict	wordcount/getWordDict.py	/^def tryToSaveDict():$/;"	f
+tryToSaveDict	wordcount/getWordFile.py	/^def tryToSaveDict(write_path):$/;"	f
+tryToSaveDict	wordcount/transResultToDB.py	/^def tryToSaveDict():$/;"	f
+tryToSaveTag	ctags/transFileToDB.py	/^def tryToSaveTag():$/;"	f
+worddictlist	buildFuncSemanticTable.py	/^worddictlist=[]$/;"	v
+worddictlist	wordcount/getWordDict.py	/^worddictlist=[]$/;"	v
+worddictlist	wordcount/getWordFile.py	/^worddictlist=[]$/;"	v
+worddictlist_length	buildFuncSemanticTable.py	/^worddictlist_length = 10000$/;"	v
+worddictlist_length	wordcount/getWordDict.py	/^worddictlist_length = 10000$/;"	v
+worddictlist_length	wordcount/getWordFile.py	/^worddictlist_length = 10000$/;"	v
