@@ -41,7 +41,7 @@ def extractFunctionName():
         for line in tagsfile:
             if line.find("\tf\tfile:") != -1:
                 words = line.split("\t")
-                item = (words[0], repos_id)
+                item = (words[0], words[1], repos_id)
                 functionList.append(item)
                 tryToSaveDict(False)
         tryToSaveDict(True)
@@ -59,7 +59,7 @@ def insertFuncDictIntoDB():
         cur=conn.cursor()
         cur.execute('set names utf8mb4')
         conn.select_db('codeAnalysis')
-        sqli='insert into func_semantic (func_name, repos_id) values (%s,%s);'
+        sqli='insert into func_semantic (func_name, file_path, repos_id) values (%s, %s, %s);'
         cur.executemany(sqli,functionList)
         functionList=[]
         conn.commit()
