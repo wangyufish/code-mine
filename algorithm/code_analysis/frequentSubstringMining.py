@@ -235,7 +235,7 @@ def buildFuncMessageDicViaPatch():
                             func_message_dic[func] = sha_message_dic[sha]
                         else:
                             func_message_dic[func] += " " + sha_message_dic[sha]
-        return func_message_dic()
+        return func_message_dic
     except MySQLdb.Error,e:
         print e
         raise
